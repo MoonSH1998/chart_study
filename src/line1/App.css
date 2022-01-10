@@ -1,0 +1,10 @@
+svg{
+  background: #eee;
+  width: 347px;
+  height: 200px;
+  margin : 10px;
+  border :21px;
+  border-width: 3px;
+  border-color: black;
+  border-style:groove;
+}

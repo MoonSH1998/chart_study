@@ -1,0 +1,16 @@
+svg{
+  background: #eee;
+  width: 600px;
+  height: 400px;
+  margin : 40px;
+  border :21px;
+  border-width: 3px;
+  border-color: black;
+  border-style:groove;
+}
+button{
+  margin-left: 80px;
+  width:60px;
+  height: 30px;
+  font-size: large;
+}
