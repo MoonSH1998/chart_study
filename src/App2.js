@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import "./App.css";
+import "./App2.css";
 import { select, axisBottom, axisRight, scaleLinear, scaleBand } from "d3";
 
 function App2() {
@@ -65,13 +65,13 @@ function App2() {
 
   return (
     <React.Fragment>
-      <svg ref={svgRef}>
+      <svg id="a2" ref={svgRef}>
         <g className="x-axis" />
         <g className="y-axis" />
       </svg>
       <br />
       
-      <button id='a' onClick={() => setData(data.map((value) => value + 5))}>
+      <button id='b2' onClick={() => setData(data.map((value) => value + 5))}>
         Update data
       </button>
       <button onClick={() => setData(data.filter((value) => value < 35))}>

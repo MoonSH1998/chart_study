@@ -1,10 +1,11 @@
-svg{
+#a8{
   background: #eee;
-  width: 347px;
-  height: 200px;
+  width: 600px;
+  height: 400px;
   margin : 10px;
   border :21px;
   border-width: 3px;
   border-color: black;
   border-style:groove;
+  overflow:visible;
 }

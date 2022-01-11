@@ -1,7 +1,7 @@
 
 import React, {useRef, useEffect, useState} from "react";
 import {select, scaleLinear, axisBottom, axisRight ,scaleBand, selectAll } from "d3";
-import "./App.css";
+import "./App1.css";
 import { svg } from "d3";
 
   function App1({ history }){
@@ -57,7 +57,7 @@ import { svg } from "d3";
      
   return(
   <React.Fragment>
-  <svg ref={svgRef}>
+  <svg id="a1" ref={svgRef}>
     <g className="x-axis" />
     <g className="y-axis" />
   </svg>

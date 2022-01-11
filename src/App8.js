@@ -1,9 +1,9 @@
 import React, {useRef, useEffect, useState} from "react";
 import {select, line, curveCardinal, axisBottom, axisRight ,scaleLinear, selectAll } from "d3";
-import "./App.css";
+import "./App8.css";
 import { svg } from "d3";
 
-  function App(){
+  function App8(){
     const [data, setData] = useState([0, 30, 50, 70, 120, 200, 210, 180, 290, 101, 200, 390]);
     const svgRef = useRef();
     
@@ -50,7 +50,7 @@ import { svg } from "d3";
      
   return(
   <React.Fragment>
-  <svg ref={svgRef}>
+  <svg id="a8" ref={svgRef}>
     <g className="x-axis" />
     <g className="y-axis" />
   </svg>
@@ -64,4 +64,4 @@ import { svg } from "d3";
   )
 }
 
-export default App;
+export default App8;

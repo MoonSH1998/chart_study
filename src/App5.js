@@ -1,6 +1,6 @@
 import React, {useRef, useEffect, useState} from "react";
 import {select} from "d3";
-import "./App.css";
+import "./App5.css";
 
 function App5() {
   const svgRef = useRef();
@@ -34,13 +34,13 @@ const decreaseData = () => {
 
 return (
   <React.Fragment>
-    <svg ref={svgRef}>
+    <svg id="a5" ref={svgRef}>
       <circle />
     </svg>
     <br/>
     <br/>
-    <button onClick={increaseData}>+5</button>
-    <button onClick={decreaseData}>-5</button>
+    <button className="b5" onClick={increaseData}>+5.</button>
+    <button className="b5" onClick={decreaseData}>-5</button>
   </React.Fragment>
 );
 }

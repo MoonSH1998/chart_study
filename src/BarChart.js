@@ -93,7 +93,7 @@ function BarChart({data}) {
   return (
     <React.Fragment>
       <div ref={wrapperRef} style={{marginBottom: "2rem"}}>
-        <svg ref={svgRef}>
+        <svg id="a3" ref={svgRef}>
           <g className="x-axis" />
           <g className="y-axis" />
         </svg>

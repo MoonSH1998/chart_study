@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import * as d3 from "d3";
+import "./App4.css";
 
 
 function App4(){
@@ -53,7 +54,7 @@ function App4(){
   }, [data]);
   return (
     <div className="App">
-      <svg ref={svgRef}></svg>
+      <svg id="a4" ref={svgRef}></svg>
     </div>
   );
 }

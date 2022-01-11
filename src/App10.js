@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
 import * as d3 from "d3";
+import "./App10.css";
 
-
-function App(){
+function App10(){
   
   const [data] = useState([
     {property : 'a', value : 4 },
@@ -49,9 +49,9 @@ function App(){
   
   return (
     <div className="App">
-      <svg ref={svgRef}></svg>
+      <svg id="a10" ref={svgRef}></svg>
     </div>
   );
 }
 
-export default App;
+export default App10;

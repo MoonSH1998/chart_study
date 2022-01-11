@@ -1,6 +1,6 @@
 import React, {useRef, useEffect, useState} from "react";
 import {select, line, curveCardinal} from "d3";
-import "./App.css";
+import "./App6.css";
 
 
   function App6(){
@@ -21,7 +21,7 @@ import "./App.css";
   
   return(
   <React.Fragment>
-  <svg ref={svgRef}></svg>
+  <svg id="a6" ref={svgRef}></svg>
     <br />
     <button onClick={() => setData(data.map(value => value + 5))}>add 10 to data</button>
     <button onClick={() => setData(data.filter(value => value <= 65))}>filter</button>

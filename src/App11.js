@@ -1,7 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import * as d3 from "d3";
 
-
   const data = [
     {property : 'a', value : 4 },
     {property : 'b', value : 3 },
@@ -10,7 +9,7 @@ import * as d3 from "d3";
     {property : 'e', value : 8 }
   ];
   
-  const App = () => {
+  const App11 = () => {
     const pieChart = useRef()
 
     useEffect(() => {
@@ -72,4 +71,4 @@ import * as d3 from "d3";
   );
 }
 
-export default App;
+export default App11;

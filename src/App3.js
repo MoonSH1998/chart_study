@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.css";
+import "./App3.css";
 import BarChart from "./BarChart";
 //1134
 function App3() {
@@ -8,13 +8,13 @@ function App3() {
   return (
     <React.Fragment>
       <BarChart data={data} />
-      <button onClick={() => setData(data.map((value) => value + 5))}>
+      <button className="b3" onClick={() => setData(data.map((value) => value + 5))}>
         Update data
       </button>
-      <button onClick={() => setData(data.filter((value) => value < 35))}>
+      <button className="b3" onClick={() => setData(data.filter((value) => value < 35))}>
         Filter data
       </button>
-      <button
+      <button className="b3"
         onClick={() => setData([...data, Math.round(Math.random() * 100)])}
       >
         Add data
