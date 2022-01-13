@@ -1,10 +1,10 @@
 
 import React, {useRef, useEffect, useState} from "react";
 import {select, scaleLinear, axisBottom, axisRight ,scaleBand, selectAll } from "d3";
-import "./App1.css";
+import "./Bar1.css";
 import { svg } from "d3";
 
-  function App1({ history }){
+  function Bar1({ history }){
     const [data, setData] = useState([8, 30, 50, 70, 120, 200, 210]);
     const svgRef = useRef();
     
@@ -70,4 +70,4 @@ import { svg } from "d3";
   )
 }
 
-export default App1;
+export default Bar1;

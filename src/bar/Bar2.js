@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
-import "./App2.css";
+import "./Bar2.css";
 import { select, axisBottom, axisRight, scaleLinear, scaleBand } from "d3";
 
-function App2() {
+function Bar2() {
   const [data, setData] = useState([25, 30, 45, 60, 10, 65, 75]);
   const svgRef = useRef();
 
@@ -86,4 +86,4 @@ function App2() {
   );
 }
 
-export default App2;
+export default Bar2;

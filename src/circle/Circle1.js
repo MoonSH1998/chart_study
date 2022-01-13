@@ -1,8 +1,8 @@
 import React, {useRef, useEffect, useState} from "react";
 import {select} from "d3";
-import "./App5.css";
+import "./Circle1.css";
 
-function App5() {
+function Circle1() {
   const svgRef = useRef();
   const [data, setData] = useState([5,20,25,30,40,60,80,100,150]);
 
@@ -45,4 +45,4 @@ return (
 );
 }
 
-export default App5;
+export default Circle1;

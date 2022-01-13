@@ -1,0 +1,23 @@
+
+#bar5_svg{
+  background: #eee;
+  overflow:visible;
+  display:block;
+  width: 100%;
+}
+
+
+
+.bar5_button{
+  width: 100px;
+  border: 1px solid black;
+  margin: 0 auto 5px;
+}
+
+#bar5_div{
+  margin:15%;
+}
+
+#bar5_button_div{
+  margin-left: 15%;
+}

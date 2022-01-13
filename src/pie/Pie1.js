@@ -9,7 +9,7 @@ import * as d3 from "d3";
     {property : 'e', value : 8 }
   ];
   
-  const App11 = () => {
+  const Pie1 = () => {
     const pieChart = useRef()
 
     useEffect(() => {
@@ -18,7 +18,7 @@ import * as d3 from "d3";
       
       const arc = d3.arc().innerRadius(0).outerRadius(200)
 
-      const colors = d3.scaleOrdinal(['red', 'blue', 'black', 'yellow', 'green'])
+      const colors = d3.scaleOrdinal().range(d3.schemeSet2);
       
       const svg = d3.select(pieChart.current)
                         .attr('width', 600)
@@ -71,4 +71,4 @@ import * as d3 from "d3";
   );
 }
 
-export default App11;
+export default Pie1;

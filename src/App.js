@@ -4,36 +4,52 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import App1 from './App1';
-import App2 from './App2';
-import App3 from './App3';
-import App4 from './App4';
-import App5 from './App5';
-import App6 from './App6';
-import App7 from './App7';
-import App8 from './App8';
-import App9 from './App9';
-import App10 from './App10';
-import App11 from './App11';
+import './App.css';
+import Bar1 from './bar/Bar1';
+import Bar2 from './bar/Bar2';
+import Bar3 from './bar/Bar3';
+import Bar4 from './bar/Bar4';
+import Bar5 from './bar/Bar5';
+import Bar7 from './bar/Bar7';
+import Circle1 from './circle/Circle1';
+import Circle2 from './circle/Circle2';
+import Line1 from './line/Line1';
+import Line2 from './line/Line2';
+import Line3 from './line/Line3';
+import Line4 from "./line/Line4";
+import Line5 from "./line/Line5";
+import Pie1 from './pie/Pie1';
 import { Home } from './Home';
+import TBA1 from "./tba/TBA1";
 
 function App() {
   return (
     <Routes>
-      
-      
-        <Route path="/" element={<Home />} />
-        <Route path="/App1" element={<App1 />} />
-        <Route path="App2" element={<App2 />} />
-        <Route path="App3" element={<App3 />} />
-       <Route path="App4" element={<App4 />} />
-      <Route path="App5" element={<App5 />} />
-      <Route path="App6" element={<App6 />} />
-      <Route path="App7" element={<App7 />} />
-      <Route path="App8" element={<App8 />} />
-      <Route path="App9" element={<App9 />} />
-      <Route path="App10" element={<App10 />} />
-      <Route path="App11" element={<App11 />} />     
+       <Route path="/" element={<Home />} />
+
+
+  
+            <Route path="/Bar1" element={<Bar1 />} />
+            <Route path="Bar2" element={<Bar2 />} />
+            <Route path="Bar3" element={<Bar3 />} />
+            <Route path="Bar4" element={<Bar4 />} />
+            <Route path="Bar5" element={<Bar5 />} />
+            <Route path="Bar7" element={<Bar7 />} />
+            
+       
+       
+       
+            <Route path="Circle1" element={<Circle1 />} />
+            <Route path="Circle2" element={<Circle2 />} />
+   
+            <Route path="Line1" element={<Line1 />} />
+            <Route path="Line2" element={<Line2 />} />
+            <Route path="Line3" element={<Line3 />} />
+            <Route path="Line4" element={<Line4 />} />
+            <Route path="Line5" element={<Line5 />} />
+     
+             <Route path="Pie1" element={<Pie1 />} />  
+             <Route path="TBA1" element={<TBA1 />} />  
     </Routes>
    
   );

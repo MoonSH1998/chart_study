@@ -1,9 +1,10 @@
 import React, {useRef, useEffect, useState} from "react";
 import {select, line, curveCardinal, axisBottom, axisRight ,scaleLinear, selectAll } from "d3";
-import "./App8.css";
+import "./Line2.css";
 import { svg } from "d3";
 
-  function App8(){
+  function Line2
+(){
     const [data, setData] = useState([0, 30, 50, 70, 120, 200, 210, 180, 290, 101, 200, 390]);
     const svgRef = useRef();
     
@@ -64,4 +65,4 @@ import { svg } from "d3";
   )
 }
 
-export default App8;
+export default Line2;

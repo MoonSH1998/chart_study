@@ -1,9 +1,10 @@
 import React, {useRef, useEffect, useState} from "react";
 import {select, line, curveCardinal} from "d3";
-import "./App6.css";
+import "./Circle2.css";
 
 
-  function App6(){
+  function Circle2
+(){
     
     const [data, setData] = useState([25, 30 , 35, 59, 80, 100]);
     const svgRef = useRef();
@@ -29,4 +30,4 @@ import "./App6.css";
   )
 }
 
-export default App6;
+export default Circle2;

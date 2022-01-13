@@ -1,9 +1,9 @@
 import React, { useRef, useEffect, useState } from "react";
 import * as d3 from "d3";
-import "./App4.css";
+import "./Bar4.css";
 
 
-function App4(){
+function Bar4(){
   const [data] = useState([200, 250, 60, 150, 100, 175]);
   const svgRef = useRef();
   
@@ -53,10 +53,10 @@ function App4(){
 
   }, [data]);
   return (
-    <div className="App">
-      <svg id="a4" ref={svgRef}></svg>
+    <div className="bar4">
+      <svg id="bar4_div" ref={svgRef}></svg>
     </div>
   );
 }
 
-export default App4;
+export default Bar4;

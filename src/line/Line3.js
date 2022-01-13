@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
-import './App9.css'
+import './Line3.css'
 import * as d3 from "d3";
 
-function App9(){
+function Line3(){
   const [data]= useState([25, 50, 35, 15, 94, 10]);
   const svgRef = useRef();
 
@@ -38,7 +38,7 @@ function App9(){
 
     const yAxis = d3.axisLeft(yScale)
       .ticks('5');
-      
+     
      svg.append('g')
       .call(xAxis)
       .attr('transform', `translate(0, ${h})`)
@@ -62,4 +62,4 @@ function App9(){
   );
 }
 
-export default App9;
+export default Line3;

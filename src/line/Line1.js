@@ -1,8 +1,8 @@
 //https://velog.io/@bangina/D3.js-React.js-Hooks-%ED%95%A8%EA%BB%98-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-2.-%EA%B3%A1%EC%84%A0-%EA%B7%B8%EB%9E%98%ED%94%84-%EB%A7%8C%EB%93%A4%EA%B8%B0
 import React, {useRef, useEffect, useState} from "react";
 import {select, line, curveCardinal} from "d3";
-import "./App7.css";
-const App7 = () => {
+import "./Line1.css";
+const Line1 = () => {
   //라인에 바인딩 될 data배열 생성
   const [lineData, setLineData] = useState([1,5,34,22,50,100,50,70,20,10,2,2,2,2,1,100,12,75]);
   //직접 dom에서 svg를 조작하기 위해 useRef 사용
@@ -57,4 +57,4 @@ return (
 );
 };
 
-export default App7;
+export default Line1;

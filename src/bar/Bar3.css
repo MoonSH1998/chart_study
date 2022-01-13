@@ -14,7 +14,12 @@ root{
   height: 100vh;
   padding: 0 50px;
 }
-
+#bar3_div{
+  margin : 200px;
+  padding : 100px;
+  border: groove;
+  background-color: #eee;
+}
 .b3{
   width: 100px;
   border: 1px solid black;
