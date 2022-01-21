@@ -1,0 +1,673 @@
+//page1_방문객 데이터
+
+//방문객과 도시매력도의 상관관계 - 월별 도시 매력도
+const city_attractiveness_Miryang = [ 
+    { "month": "Jan", "value": 68 },
+    { "month": "Feb", "value": 82 },
+    { "month": "Mar", "value": 72 },
+    { "month": "Apr", "value": 90 },
+    { "month": "May", "value": 97 },
+    { "month": "Jun", "value": 65 },
+    { "month": "Jul", "value": 80 },
+    { "month": "Aug", "value": 52 },
+    { "month": "Sep", "value": 112 },
+    { "month": "Oct", "value": 88 },
+    { "month": "Nov", "value": 81 },
+    { "month": "Dec", "value": 100 }
+];
+//방문객과 도시매력도 상관관계 - 월별 방문자수
+const city_monthly_visitors_Miryang = [
+    { "month": "Jan", "value": 118 },
+    { "month": "Feb", "value": 84 },
+    { "month": "Mar", "value": 103 },
+    { "month": "Apr", "value": 58 },
+    { "month": "May", "value": 100 },
+    { "month": "Jun", "value": 56 },
+    { "month": "Jul", "value": 43 },
+    { "month": "Aug", "value": 81 },
+    { "month": "Sep", "value": 62 },
+    { "month": "Oct", "value": 27 },
+    { "month": "Nov", "value": 40 },
+    { "month": "Dec", "value": 57 }
+];
+//매력도 유형 - 스파이더
+const city_attractiveness_type_Miryang = [
+    { "type": "restaurant", "value": 72 },
+    { "type": "lodgment", "value": 32 },
+    { "type": "attractions", "value": 64 },
+    { "type": "cafe", "value": 112 },
+    { "type": "이름1", "value": 40 },
+    { "type": "이름2", "value": 68 }
+];
+//도시매력도 + 광역 내 도시매력도  - 반원
+//반원 차트 두 개를 묶었습니다.. 이건 어떻게 해야할지 몰라서 일단 이렇게 묶었습니다.
+const city_attractiveness_evaluation_Miryang = [
+    { "name": "Miryang", "attractiveness":871, "inside_metropolitan_attractiveness_rank": 1 }
+]
+
+
+
+//page2 - 방문객 데이터 -2
+//방문객 데이터 - 매력도 추이
+const city_mounthly_attractiveness_trend_Miryang = [ 
+    { "month": "Jan", "restaurant": 53, "cafe": 28, "attractions": 53 },
+    { "month": "Feb", "restaurant": 48, "cafe": 22, "attractions": 48 },
+    { "month": "Mar", "restaurant": 42, "cafe": 29, "attractions": 42 },
+    { "month": "Apr", "restaurant": 51, "cafe": 36, "attractions": 51 },
+    { "month": "May", "restaurant": 48, "cafe": 44, "attractions": 47 },
+    { "month": "Jun", "restaurant": 44, "cafe": 38, "attractions": 43 },
+    { "month": "Jul", "restaurant": 39, "cafe": 33, "attractions": 42 },
+    { "month": "Aug", "restaurant": 45, "cafe": 27, "attractions": 45 },
+    { "month": "Sep", "restaurant": 48, "cafe": 38, "attractions": 47 },
+    { "month": "Oct", "restaurant": 35, "cafe": 43, "attractions": 45 },
+    { "month": "Nov", "restaurant": 43, "cafe": 28, "attractions": 46 },
+    { "month": "Dec", "restaurant": 40, "cafe": 18, "attractions": 40 }
+];
+    //방문객 데이터 - 매력도 추이 -1
+    const city_mounthly_attractiveness_trend_1_Miryang = [ 
+        { "month": "Jan", "restaurant": 53 },
+        { "month": "Feb", "restaurant": 48 },
+        { "month": "Mar", "restaurant": 42 },
+        { "month": "Apr", "restaurant": 51 },
+        { "month": "May", "restaurant": 48 },
+        { "month": "Jun", "restaurant": 44 },
+        { "month": "Jul", "restaurant": 39 },
+        { "month": "Aug", "restaurant": 45 },
+        { "month": "Sep", "restaurant": 48 },
+        { "month": "Oct", "restaurant": 35 },
+        { "month": "Nov", "restaurant": 43 },
+        { "month": "Dec", "restaurant": 40 }
+    ];
+    //방문객 데이터 - 매력도 추이 -2
+    const city_mounthly_attractiveness_trend_2_Miryang = [ 
+        { "month": "Jan", "cafe": 28 },
+        { "month": "Feb", "cafe": 22 },
+        { "month": "Mar", "cafe": 29 },
+        { "month": "Apr", "cafe": 36 },
+        { "month": "May", "cafe": 44 },
+        { "month": "Jun", "cafe": 38 },
+        { "month": "Jul", "cafe": 33 },
+        { "month": "Aug", "cafe": 27 },
+        { "month": "Sep", "cafe": 38 },
+        { "month": "Oct", "cafe": 43 },
+        { "month": "Nov", "cafe": 28 },
+        { "month": "Dec", "cafe": 18 }
+    ];
+    //방문객 데이터 - 매력도 추이 -3
+    const city_mounthly_attractiveness_trend_3_Miryang = [ 
+        { "month": "Jan", "attractions": 53 },
+        { "month": "Feb", "attractions": 48 },
+        { "month": "Mar", "attractions": 42 },
+        { "month": "Apr", "attractions": 51 },
+        { "month": "May", "attractions": 47 },
+        { "month": "Jun", "attractions": 43 },
+        { "month": "Jul", "attractions": 42 },
+        { "month": "Aug", "attractions": 45 },
+        { "month": "Sep", "attractions": 47 },
+        { "month": "Oct", "attractions": 45 },
+        { "month": "Nov", "attractions": 46 },
+        { "month": "Dec", "attractions": 40 }
+    ];
+
+//방문객데이터 - 관광명소
+const city_mounthly_attractions_Miryang = [ 
+    { "month": "Jan", "Miryang": 68, "inside_metropolitan_attractions_average": 31 },
+    { "month": "Feb", "Miryang": 82, "inside_metropolitan_attractions_average": 41 },
+    { "month": "Mar", "Miryang": 72, "inside_metropolitan_attractions_average": 38 },
+    { "month": "Apr", "Miryang": 90, "inside_metropolitan_attractions_average": 24 },
+    { "month": "May", "Miryang": 97, "inside_metropolitan_attractions_average": 58 },
+    { "month": "Jun", "Miryang": 65, "inside_metropolitan_attractions_average": 39 },
+    { "month": "Jul", "Miryang": 80, "inside_metropolitan_attractions_average": 42 },
+    { "month": "Aug", "Miryang": 52, "inside_metropolitan_attractions_average": 34 },
+    { "month": "Sep", "Miryang": 112, "inside_metropolitan_attractions_average": 37 },
+    { "month": "Oct", "Miryang": 88, "inside_metropolitan_attractions_average": 41},
+    { "month": "Nov", "Miryang": 81, "inside_metropolitan_attractions_average": 39 },
+    { "month": "Dec", "Miryang": 100, "inside_metropolitan_attractions_average": 44 },
+];
+    //방문객데이터 - 관광명소-1 - 밀양
+    const city_mounthly_attractions_Miryang_1 = [ 
+        { "month": "Jan", "Miryang": 68 },
+        { "month": "Feb", "Miryang": 82 },
+        { "month": "Mar", "Miryang": 72 },
+        { "month": "Apr", "Miryang": 90 },
+        { "month": "May", "Miryang": 97 },
+        { "month": "Jun", "Miryang": 65 },
+        { "month": "Jul", "Miryang": 80 },
+        { "month": "Aug", "Miryang": 52 },
+        { "month": "Sep", "Miryang": 112 },
+        { "month": "Oct", "Miryang": 88 },
+        { "month": "Nov", "Miryang": 81 },
+        { "month": "Dec", "Miryang": 100 }
+    ];
+    //방문객데이터 - 관광명소-2 - 광역평균
+    const city_mounthly_attractions_Miryang_2 = [ 
+        { "month": "Jan", "inside_metropolitan_attractions_average": 31 },
+        { "month": "Feb", "inside_metropolitan_attractions_average": 41 },
+        { "month": "Mar", "inside_metropolitan_attractions_average": 38 },
+        { "month": "Apr", "inside_metropolitan_attractions_average": 24 },
+        { "month": "May", "inside_metropolitan_attractions_average": 58 },
+        { "month": "Jun", "inside_metropolitan_attractions_average": 39 },
+        { "month": "Jul", "inside_metropolitan_attractions_average": 42 },
+        { "month": "Aug", "inside_metropolitan_attractions_average": 34 },
+        { "month": "Sep", "inside_metropolitan_attractions_average": 37 },
+        { "month": "Oct", "inside_metropolitan_attractions_average": 41},
+        { "month": "Nov", "inside_metropolitan_attractions_average": 39 },
+        { "month": "Dec", "inside_metropolitan_attractions_average": 44 }
+    ];
+
+//광역평균대비 관광지 경쟁력 비교
+const comparison_competitiveness_attractions_Miryang = [
+    { "type": "restaurant", "Miryang": 589, "everage": 457 },
+    { "type": "cafe", "Miryang": 648, "everage": 349 },
+    { "type": "lodgment", "Miryang": 854, "everage": 476 },
+    { "type": "attractions", "Miryang": 545, "everage": 517 }
+];
+    //광역평균대비 관광지 경쟁력 비교-1
+    const comparison_competitiveness_attractions_Miryang_1 = [
+        { "type": "restaurant", "Miryang": 589 },
+        { "type": "cafe", "Miryang": 648 },
+        { "type": "lodgment", "Miryang": 854 },
+        { "type": "attractions", "Miryang": 545 }
+    ];
+    //광역평균대비 관광지 경쟁력 비교-2
+    const comparison_competitiveness_attractions_Miryang_2 = [
+        { "type": "restaurant", "everage": 457 },
+        { "type": "cafe", "everage": 349 },
+        { "type": "lodgment", "everage": 476 },
+        { "type": "attractions", "everage": 517 }
+    ];
+
+//page3 - 방문객데이터3
+
+//최근 매력도가 상승 중인 관광지
+const increase_attractiveness = [
+    { "type": "restaurant", "value": 249, "invrease": 21 },
+    { "type": "lodgment", "value": 324, "invrease": -8 },
+    { "type": "attractions", "value": 466, "invrease": 37 },
+    { "type": "cafe", "value": 130, "invrease": 12 }
+];
+
+// page4 - 방문객데이터 - 상세페이지 - 온라인상매력도
+
+//매력도지수( 검색결과 ) 
+const attractiveness_this = [
+    { "name": "밀양명가", "type": "cafe", "value": 986, "rank": 1, "count_this_type": 185}
+];
+
+//  도시 내 매력도 경쟁력
+// 상위 10% 는 +10으로 하위 20퍼는 -20으로 저장
+const Competitiveness_city_this = [
+    {"name": "밀양명가", "type": "cafe", "aroun_1.5km": +20, "in_Gu": -10, "everage_city": +10}
+];
+
+//매력도 추이
+const attractiveness_3year_transition_this = [
+    {"date": "20.1Q", "name": "밀양명가", "value": 1250, "everage": 772 },
+    {"date": "20.2Q", "name": "밀양명가", "value": 1036, "everage": 697 },
+    {"date": "20.3Q", "name": "밀양명가", "value": 930, "everage": 854 },
+    {"date": "20.4Q", "name": "밀양명가", "value": 1185, "everage": 1107 },
+
+    {"date": "21.1Q", "name": "밀양명가", "value": 1063, "everage": 1283 },
+    {"date": "21.2Q", "name": "밀양명가", "value": 1948, "everage": 1108 },
+    {"date": "21.3Q", "name": "밀양명가", "value": 961, "everage": 978 },
+    {"date": "21.4Q", "name": "밀양명가", "value": 986, "everage": 782 },
+
+    {"date": "22.1Q", "name": "밀양명가", "value": 1128, "everage": 1197 },
+    {"date": "22.2Q", "name": "밀양명가", "value": 750, "everage": 1239 },
+    {"date": "22.3Q", "name": "밀양명가", "value": 896, "everage": 854 },
+    {"date": "22.4Q", "name": "밀양명가", "value": 887, "everage": 598 },
+];
+    //매력도 추이-1
+    const attractiveness_3year_transition_this_1 = [
+        {"date": "20.1Q", "name": "밀양명가", "value": 1250 },
+        {"date": "20.2Q", "name": "밀양명가", "value": 1036 },
+        {"date": "20.3Q", "name": "밀양명가", "value": 930 },
+        {"date": "20.4Q", "name": "밀양명가", "value": 1185  },
+
+        {"date": "21.1Q", "name": "밀양명가", "value": 1063  },
+        {"date": "21.2Q", "name": "밀양명가", "value": 1948  },
+        {"date": "21.3Q", "name": "밀양명가", "value": 961 },
+        {"date": "21.4Q", "name": "밀양명가", "value": 986 },
+
+        {"date": "22.1Q", "name": "밀양명가", "value": 1128  },
+        {"date": "22.2Q", "name": "밀양명가", "value": 750  },
+        {"date": "22.3Q", "name": "밀양명가", "value": 896 },
+        {"date": "22.4Q", "name": "밀양명가", "value": 887 }
+    ];
+    //매력도 추이-2
+    const attractiveness_3year_transition_this_2 = [
+        {"date": "20.1Q", "everage": 772 },
+        {"date": "20.2Q", "everage": 697 },
+        {"date": "20.3Q", "everage": 854 },
+        {"date": "20.4Q", "everage": 1107 },
+
+        {"date": "21.1Q", "everage": 1283 },
+        {"date": "21.2Q", "everage": 1108 },
+        {"date": "21.3Q", "everage": 978 },
+        {"date": "21.4Q", "everage": 782 },
+
+        {"date": "22.1Q", "everage": 1197 },
+        {"date": "22.2Q", "everage": 1239 },
+        {"date": "22.3Q", "everage": 854 },
+        {"date": "22.4Q", "everage": 598 },
+    ]
+//page5 방문객데이터 - 상세페이지 - 인근 관광상권
+
+//상권매력도 ( 반원 )
+//이거 다른 곳에는 업종이 카페인데 여기는 맛집이라 되있어서 일단 xd기준으로 작성했습니다.
+const attractiveness_this_2 = [
+    { "name": "밀양명가", "type": "restaurant", "value": 956, "rank": 1}
+];
+
+//관광상권 온라인 매력도 추세
+const trends_online_attractiveness = [ 
+    { "month": "Jan", "value": 131 },
+    { "month": "Feb", "value": 107 },
+    { "month": "Mar", "value": 140 },
+    { "month": "Apr", "value": 167 },
+    { "month": "May", "value": 203 },
+    { "month": "Jun", "value": 173 },
+    { "month": "Jul", "value": 156 },
+    { "month": "Aug", "value": 129 },
+    { "month": "Sep", "value": 180 },
+    { "month": "Oct", "value": 197 },
+    { "month": "Nov", "value": 135 },
+    { "month": "Dec", "value": 92 }
+];
+
+//page6 방문객 데이터 - 상세페이지 - 경쟁업체 비교
+
+//인근경쟁업체 매력도
+//이거 현재 value값도 넣어야해서 하나에 다 넣어버렸습니다,,!
+const attractiveness_nearby_competitors = [
+    { "name": "밀양명가", "value": 942,
+                        "near1": "조방낙지", "near1_value": 249, "near1_increase": 21,
+                        "near2": "등대아구찜", "near2_value": 324, "near2_increase": -8,
+                        "near3": "비송민물장어", "near3_value": 466, "near3_increase": 37 }
+];
+
+//지역 내 인기 사업장 비교
+const comparison_popular_this_region =[
+    { "type": "일식", "value": 554, "increase": 28, "everage": 465 },
+    { "type": "카페", "value": 812, "increase": 31, "everage": 335 },
+    { "type": "중식", "value": 854, "increase": 44, "everage": 421 },
+    { "type": "햄버거", "value": 375, "increase": -27, "everage": 623 },
+    { "type": "해산물", "value": 668, "increase": -18, "everage": 397 },
+    { "type": "한식", "value": 503, "increase": -12, "everage": 584 },
+    { "type": "베이커리", "value": 342, "increase": +16, "everage": 173 },
+    { "type": "레스토랑", "value": 462, "increase": -13, "everage": 673 }
+];
+    //지역 내 인기 사업장 비교_1
+    const comparison_popular_this_region_1 =[
+        { "type": "일식", "value": 554, "increase": 28 },
+        { "type": "카페", "value": 812, "increase": 31 },
+        { "type": "중식", "value": 854, "increase": 44 },
+        { "type": "햄버거", "value": 375, "increase": -27 },
+        { "type": "해산물", "value": 668, "increase": -18 },
+        { "type": "한식", "value": 503, "increase": -12 },
+        { "type": "베이커리", "value": 342, "increase": +16 },
+        { "type": "레스토랑", "value": 462, "increase": -13 }
+    ];
+    //지역 내 인기 사업장 비교_2
+    const comparison_popular_this_region_2 =[
+        { "type": "일식", "everage": 465 },
+        { "type": "카페", "everage": 335 },
+        { "type": "중식", "everage": 421 },
+        { "type": "햄버거", "everage": 623 },
+        { "type": "해산물", "everage": 397 },
+        { "type": "한식", "everage": 584 },
+        { "type": "베이커리", "everage": 173 },
+        { "type": "레스토랑", "everage": 673 }
+    ];
+
+//최근 3년간 경쟁업체 매력도 추세
+const competitor_3years_attractiveness_trend = [
+    {"date": "20.1Q", "near1": "밀양명가", "near1_value": 53, "near2": "등대아구찜", "near2_value": 27, "near3": "비송민물장어", "near3_value": 37 },
+    {"date": "20.2Q", "near1": "밀양명가", "near1_value": 48, "near2": "등대아구찜", "near2_value": 22, "near3": "비송민물장어", "near3_value": 32 },
+    {"date": "20.3Q", "near1": "밀양명가", "near1_value": 42, "near2": "등대아구찜", "near2_value": 29, "near3": "비송민물장어", "near3_value": 30 },
+    {"date": "20.4Q", "near1": "밀양명가", "near1_value": 54, "near2": "등대아구찜", "near2_value": 36, "near3": "비송민물장어", "near3_value": 23 },
+    
+    {"date": "21.1Q", "near1": "밀양명가", "near1_value": 48, "near2": "등대아구찜", "near2_value": 44, "near3": "비송민물장어", "near3_value": 22 },
+    {"date": "21.2Q", "near1": "밀양명가", "near1_value": 46, "near2": "등대아구찜", "near2_value": 37, "near3": "비송민물장어", "near3_value": 27 },
+    {"date": "21.3Q", "near1": "밀양명가", "near1_value": 41, "near2": "등대아구찜", "near2_value": 33, "near3": "비송민물장어", "near3_value": 28 },
+    {"date": "21.4Q", "near1": "밀양명가", "near1_value": 43, "near2": "등대아구찜", "near2_value": 27, "near3": "비송민물장어", "near3_value": 26 },
+    
+    {"date": "22.1Q", "near1": "밀양명가", "near1_value": 48, "near2": "등대아구찜", "near2_value": 39, "near3": "비송민물장어", "near3_value": 37 },
+    {"date": "22.2Q", "near1": "밀양명가", "near1_value": 35, "near2": "등대아구찜", "near2_value": 43, "near3": "비송민물장어", "near3_value": 33 },
+    {"date": "22.3Q", "near1": "밀양명가", "near1_value": 47, "near2": "등대아구찜", "near2_value": 28, "near3": "비송민물장어", "near3_value": 40 },
+    {"date": "22.4Q", "near1": "밀양명가", "near1_value": 40, "near2": "등대아구찜", "near2_value": 17, "near3": "비송민물장어", "near3_value": 36 }
+    ];
+    //최근 3년간 경쟁업체 매력도 추세_1
+    const competitor_3years_attractiveness_trend_1 = [
+        {"date": "20.1Q", "near1": "밀양명가", "near1_value": 53 },
+        {"date": "20.2Q", "near1": "밀양명가", "near1_value": 48 },
+        {"date": "20.3Q", "near1": "밀양명가", "near1_value": 42 },
+        {"date": "20.4Q", "near1": "밀양명가", "near1_value": 54 },
+        
+        {"date": "21.1Q", "near1": "밀양명가", "near1_value": 48 },
+        {"date": "21.2Q", "near1": "밀양명가", "near1_value": 46 },
+        {"date": "21.3Q", "near1": "밀양명가", "near1_value": 41 },
+        {"date": "21.4Q", "near1": "밀양명가", "near1_value": 43 },
+        
+        {"date": "22.1Q", "near1": "밀양명가", "near1_value": 48 },
+        {"date": "22.2Q", "near1": "밀양명가", "near1_value": 35 },
+        {"date": "22.3Q", "near1": "밀양명가", "near1_value": 47 },
+        {"date": "22.4Q", "near1": "밀양명가", "near1_value": 40 }
+        ];
+    //최근 3년간 경쟁업체 매력도 추세_2
+    const competitor_3years_attractiveness_trend_2 = [
+        {"date": "20.1Q", "near2": "등대아구찜", "near2_value": 27 },
+        {"date": "20.2Q", "near2": "등대아구찜", "near2_value": 22 },
+        {"date": "20.3Q", "near2": "등대아구찜", "near2_value": 29 },
+        {"date": "20.4Q", "near2": "등대아구찜", "near2_value": 36 },
+        
+        {"date": "21.1Q", "near2": "등대아구찜", "near2_value": 44 },
+        {"date": "21.2Q", "near2": "등대아구찜", "near2_value": 37 },
+        {"date": "21.3Q", "near2": "등대아구찜", "near2_value": 33 },
+        {"date": "21.4Q", "near2": "등대아구찜", "near2_value": 27 },
+        
+        {"date": "22.1Q", "near2": "등대아구찜", "near2_value": 39 },
+        {"date": "22.2Q", "near2": "등대아구찜", "near2_value": 43 },
+        {"date": "22.3Q", "near2": "등대아구찜", "near2_value": 28 },
+        {"date": "22.4Q", "near2": "등대아구찜", "near2_value": 17 }
+        ];
+    //최근 3년간 경쟁업체 매력도 추세_3
+    const competitor_3years_attractiveness_trend_3 = [
+        {"date": "20.1Q", "near3": "비송민물장어", "near3_value": 37 },
+        {"date": "20.2Q", "near3": "비송민물장어", "near3_value": 32 },
+        {"date": "20.3Q", "near3": "비송민물장어", "near3_value": 30 },
+        {"date": "20.4Q", "near3": "비송민물장어", "near3_value": 23 },
+        
+        {"date": "21.1Q", "near3": "비송민물장어", "near3_value": 22 },
+        {"date": "21.2Q", "near3": "비송민물장어", "near3_value": 27 },
+        {"date": "21.3Q", "near3": "비송민물장어", "near3_value": 28 },
+        {"date": "21.4Q", "near3": "비송민물장어", "near3_value": 26 },
+        
+        {"date": "22.1Q", "near3": "비송민물장어", "near3_value": 37 },
+        {"date": "22.2Q", "near3": "비송민물장어", "near3_value": 33 },
+        {"date": "22.3Q", "near3": "비송민물장어", "near3_value": 40 },
+        {"date": "22.4Q", "near3": "비송민물장어", "near3_value": 36 }
+        ];
+
+//매력도 추세 비교
+const comparison_3years_competitiveness_attractions_this = [
+    {"date": "20.1Q", "top_10percnet": 40, "everage": 18, "this": 53 },
+    {"date": "20.2Q", "top_10percnet": 42, "everage": 29, "this": 57 },
+    {"date": "20.3Q", "top_10percnet": 34, "everage": 44, "this": 51 },
+    {"date": "20.4Q", "top_10percnet": 48, "everage": 39, "this": 53 },
+    
+    {"date": "21.1Q", "top_10percnet": 45, "everage": 27, "this": 43 },
+    {"date": "21.2Q", "top_10percnet": 39, "everage": 33, "this": 44 },
+    {"date": "21.3Q", "top_10percnet": 46, "everage": 36, "this": 46 },
+    {"date": "21.4Q", "top_10percnet": 47, "everage": 44, "this": 40 },
+    
+    {"date": "22.1Q", "top_10percnet": 53, "everage": 37, "this": 41 },
+    {"date": "22.2Q", "top_10percnet": 42, "everage": 29, "this": 46 },
+    {"date": "22.3Q", "top_10percnet": 48, "everage": 22, "this": 50 },
+    {"date": "22.4Q", "top_10percnet": 53, "everage": 28, "this": 54 }
+    ];
+        //매력도 추세 비교_1
+    const comparison_3years_competitiveness_attractions_this_1 = [
+        {"date": "20.1Q", "top_10percnet": 40 },
+        {"date": "20.2Q", "top_10percnet": 42 },
+        {"date": "20.3Q", "top_10percnet": 34 },
+        {"date": "20.4Q", "top_10percnet": 48 },
+        
+        {"date": "21.1Q", "top_10percnet": 45 },
+        {"date": "21.2Q", "top_10percnet": 39 },
+        {"date": "21.3Q", "top_10percnet": 46 },
+        {"date": "21.4Q", "top_10percnet": 47 },
+        
+        {"date": "22.1Q", "top_10percnet": 53 },
+        {"date": "22.2Q", "top_10percnet": 42 },
+        {"date": "22.3Q", "top_10percnet": 48 },
+        {"date": "22.4Q", "top_10percnet": 53 }
+        ];
+        //매력도 추세 비교_2
+    const comparison_3years_competitiveness_attractions_this_2 = [
+        {"date": "20.1Q", "everage": 18 },
+        {"date": "20.2Q", "everage": 29 },
+        {"date": "20.3Q", "everage": 44 },
+        {"date": "20.4Q", "everage": 39 },
+        
+        {"date": "21.1Q", "everage": 27 },
+        {"date": "21.2Q", "everage": 33 },
+        {"date": "21.3Q", "everage": 36 },
+        {"date": "21.4Q", "everage": 44 },
+        
+        {"date": "22.1Q", "everage": 37 },
+        {"date": "22.2Q", "everage": 29 },
+        {"date": "22.3Q", "everage": 22 },
+        {"date": "22.4Q", "everage": 28 }
+        ];
+        //매력도 추세 비교-3
+    const comparison_3years_competitiveness_attractions_this_3 = [
+        {"date": "20.1Q", "this": 53 },
+        {"date": "20.2Q", "this": 57 },
+        {"date": "20.3Q", "this": 51 },
+        {"date": "20.4Q", "this": 53 },
+        
+        {"date": "21.1Q", "this": 43 },
+        {"date": "21.2Q", "this": 44 },
+        {"date": "21.3Q", "this": 46 },
+        {"date": "21.4Q", "this": 40 },
+        
+        {"date": "22.1Q", "this": 41 },
+        {"date": "22.2Q", "this": 46 },
+        {"date": "22.3Q", "this": 50 },
+        {"date": "22.4Q", "this": 54 }
+        ];
+
+
+//page 7-네비검색 데이터
+//검색 목적지별 증감추이 ............   //휴양 및 기타는 무작위로 넣었습니다.
+//순서대로 자연관광지, 역사관광지, 휴양관광지, 공연/행사, 문화시설, 레포츠, 쇼핑, 식음료, 숙박, 기타
+const trend_search_destination= [ 
+    { "month": "Jan", "nature": 530301, "history": 270281, "recreation": 152312, "show": 200412, "culture": 283412, "sports": 112564, "shopping": 100124, "food": 219124, "lodgment": 481265, "others": 423123 },
+    { "month": "Feb", "nature": 480521, "history": 221927, "recreation": 421412, "show": 268231, "culture": 223231, "sports": 246235, "shopping": 201151, "food": 187643, "lodgment": 361856, "others": 532142 },
+    { "month": "Mar", "nature": 415249, "history": 298273, "recreation": 312142, "show": 210251, "culture": 298163, "sports": 121658, "shopping": 101838, "food": 243756, "lodgment": 321467, "others": 236234 },
+    { "month": "Apr", "nature": 534812, "history": 372817, "recreation": 425123, "show": 285643, "culture": 372375, "sports": 212832, "shopping": 212342, "food": 321352, "lodgment": 291345, "others": 364443 },
+    { "month": "May", "nature": 478219, "history": 500000, "recreation": 535221, "show": 234375, "culture": 400564, "sports": 187311, "shopping": 148525, "food": 274657, "lodgment": 254275, "others": 295982 },
+    { "month": "Jun", "nature": 467182, "history": 372817, "recreation": 241231, "show": 272684, "culture": 368754, "sports": 165111, "shopping": 141632, "food": 253845, "lodgment": 437836, "others": 112452 },
+    { "month": "Jul", "nature": 352831, "history": 323412, "recreation": 512321, "show": 278547, "culture": 341345, "sports": 138251, "shopping": 161126, "food": 268438, "lodgment": 427745, "others": 553243 },
+    { "month": "Aug", "nature": 461293, "history": 268271, "recreation": 431231, "show": 243265, "culture": 279547, "sports": 132166, "shopping": 189742, "food": 73975, "lodgment": 455634, "others": 253255 },
+    { "month": "Sep", "nature": 489271, "history": 392812, "recreation": 342411, "show": 332362, "culture": 389347, "sports": 178910, "shopping": 271829, "food": 111634, "lodgment": 499325, "others": 323612 },
+    { "month": "Oct", "nature": 351219, "history": 431239, "recreation": 125132, "show": 223144, "culture": 451544, "sports": 101250, "shopping": 167192, "food": 133362, "lodgment": 431745, "others": 356436 },
+    { "month": "Nov", "nature": 423192, "history": 283123, "recreation": 524141, "show": 268745, "culture": 278643, "sports": 123649, "shopping": 131157, "food": 177745, "lodgment": 349634, "others": 621543 },
+    { "month": "Dec", "nature": 400000, "history": 179232, "recreation": 413211, "show": 352445, "culture": 178636, "sports": 175604, "shopping": 125684, "food": 261856, "lodgment": 411342, "others": 434634 }
+];
+
+    //page 7-네비검색 데이터
+    //검색 목적지별 증감추이_1
+    const trend_search_destination_1= [ 
+        { "month": "Jan", "nature": 530301 },
+        { "month": "Feb", "nature": 480521 },
+        { "month": "Mar", "nature": 415249 },
+        { "month": "Apr", "nature": 534812 },
+        { "month": "May", "nature": 478219 },
+        { "month": "Jun", "nature": 467182 },
+        { "month": "Jul", "nature": 352831 },
+        { "month": "Aug", "nature": 461293 },
+        { "month": "Sep", "nature": 489271 },
+        { "month": "Oct", "nature": 351219 },
+        { "month": "Nov", "nature": 423192 },
+        { "month": "Dec", "nature": 400000 }
+    ];
+
+
+    //검색 목적지별 증감추이_2
+    const trend_search_destination_2 = [ 
+        { "month": "Jan", "history": 270281 },
+        { "month": "Feb", "history": 221927 },
+        { "month": "Mar", "history": 298273 },
+        { "month": "Apr", "history": 372817 },
+        { "month": "May", "history": 500000 },
+        { "month": "Jun", "history": 372817 },
+        { "month": "Jul", "history": 323412 },
+        { "month": "Aug", "history": 268271 },
+        { "month": "Sep", "history": 392812 },
+        { "month": "Oct", "history": 431239 },
+        { "month": "Nov", "history": 283123 },
+        { "month": "Dec", "history": 179232 }
+    ];
+
+
+    //검색 목적지별 증감추이_3
+    const trend_search_destination_3= [ 
+        { "month": "Jan", "recreation": 152312 },
+        { "month": "Feb", "recreation": 421412 },
+        { "month": "Mar", "recreation": 312142 },
+        { "month": "Apr", "recreation": 425123 },
+        { "month": "May", "recreation": 535221 },
+        { "month": "Jun", "recreation": 241231 },
+        { "month": "Jul", "recreation": 512321 },
+        { "month": "Aug", "recreation": 431231 },
+        { "month": "Sep", "recreation": 342411 },
+        { "month": "Oct", "recreation": 125132 },
+        { "month": "Nov", "recreation": 524141 },
+        { "month": "Dec", "recreation": 413211 }
+    ];
+
+
+    //검색 목적지별 증감추이_4 
+    const trend_search_destination_4= [ 
+        { "month": "Jan", "show": 200412 },
+        { "month": "Feb", "show": 268231 },
+        { "month": "Mar", "show": 210251 },
+        { "month": "Apr", "show": 285643 },
+        { "month": "May", "show": 234375 },
+        { "month": "Jun", "show": 272684 },
+        { "month": "Jul", "show": 278547 },
+        { "month": "Aug", "show": 243265 },
+        { "month": "Sep", "show": 332362 },
+        { "month": "Oct", "show": 223144 },
+        { "month": "Nov", "show": 268745 },
+        { "month": "Dec", "show": 352445 }
+    ];
+
+
+    //검색 목적지별 증감추이_5
+    const trend_search_destination_5= [ 
+        { "month": "Jan", "culture": 283412 },
+        { "month": "Feb", "culture": 223231 },
+        { "month": "Mar", "culture": 298163 },
+        { "month": "Apr", "culture": 372375 },
+        { "month": "May", "culture": 400564 },
+        { "month": "Jun", "culture": 368754 },
+        { "month": "Jul", "culture": 341345 },
+        { "month": "Aug", "culture": 279547 },
+        { "month": "Sep", "culture": 389347 },
+        { "month": "Oct", "culture": 451544 },
+        { "month": "Nov", "culture": 278643 },
+        { "month": "Dec", "culture": 178636 }
+    ];
+
+    //검색 목적지별 증감추이_6
+    const trend_search_destination_6= [ 
+        { "month": "Jan", "sports": 112564 },
+        { "month": "Feb", "sports": 246235 },
+        { "month": "Mar", "sports": 121658 },
+        { "month": "Apr", "sports": 212832 },
+        { "month": "May", "sports": 187311 },
+        { "month": "Jun", "sports": 165111 },
+        { "month": "Jul", "sports": 138251 },
+        { "month": "Aug", "sports": 132166 },
+        { "month": "Sep", "sports": 178910 },
+        { "month": "Oct", "sports": 101250 },
+        { "month": "Nov", "sports": 123649 },
+        { "month": "Dec", "sports": 175604 }
+    ];
+
+    //검색 목적지별 증감추이_7
+    const trend_search_destination_7 = [ 
+        { "month": "Jan", "shopping": 100124 },
+        { "month": "Feb", "shopping": 201151 },
+        { "month": "Mar", "shopping": 101838 },
+        { "month": "Apr", "shopping": 212342 },
+        { "month": "May", "shopping": 148525 },
+        { "month": "Jun", "shopping": 141632 },
+        { "month": "Jul", "shopping": 161126 },
+        { "month": "Aug", "shopping": 189742 },
+        { "month": "Sep", "shopping": 271829 },
+        { "month": "Oct", "shopping": 167192 },
+        { "month": "Nov", "shopping": 131157 },
+        { "month": "Dec", "shopping": 125684 }
+    ];
+
+    //검색 목적지별 증감추이_8
+    const trend_search_destination_8 = [ 
+        { "month": "Jan", "food": 219124 },
+        { "month": "Feb", "food": 187643 },
+        { "month": "Mar", "food": 243756 },
+        { "month": "Apr", "food": 321352 },
+        { "month": "May", "food": 274657 },
+        { "month": "Jun", "food": 253845 },
+        { "month": "Jul", "food": 268438 },
+        { "month": "Aug", "food": 73975  },
+        { "month": "Sep", "food": 111634 },
+        { "month": "Oct", "food": 133362 },
+        { "month": "Nov", "food": 177745 },
+        { "month": "Dec", "food": 261856 }
+    ];
+
+    //검색 목적지별 증감추이_9
+    const trend_search_destination_9 = [ 
+        { "month": "Jan", "lodgment": 481265 },
+        { "month": "Feb", "lodgment": 361856 },
+        { "month": "Mar", "lodgment": 321467 },
+        { "month": "Apr", "lodgment": 291345 },
+        { "month": "May", "lodgment": 254275 },
+        { "month": "Jun", "lodgment": 437836 },
+        { "month": "Jul", "lodgment": 427745 },
+        { "month": "Aug", "lodgment": 455634 },
+        { "month": "Sep", "lodgment": 499325 },
+        { "month": "Oct", "lodgment": 431745 },
+        { "month": "Nov", "lodgment": 349634 },
+        { "month": "Dec", "lodgment": 411342 }
+    ];
+
+    //검색 목적지별 증감추이_10
+    const trend_search_destination_10= [ 
+        { "month": "Jan", "others": 423123 },
+        { "month": "Feb", "others": 532142 },
+        { "month": "Mar", "others": 236234 },
+        { "month": "Apr", "others": 364443 },
+        { "month": "May", "others": 295982 },
+        { "month": "Jun", "others": 112452 },
+        { "month": "Jul", "others": 553243 },
+        { "month": "Aug", "others": 253255 },
+        { "month": "Sep", "others": 323612 },
+        { "month": "Oct", "others": 356436 },
+        { "month": "Nov", "others": 621543 },
+        { "month": "Dec", "others": 434634 }
+    ];
+
+
+//목적지 검색과 여가활동 - 퍼센트 기준
+//식음료 겹쳐서 하나 역사관광지로 바꿈.
+const search_activity = [
+    { "region": "경상남도", "food": 34, "nature": 22, "history": 12, "show": 4, "culture": 5, "sports": 7, "others": 17 }
+];
+
+//네비게이션 검색 목적지
+const navigation_search_destination = [
+    { "food": 34, "nature": 22, "history": 12, "show": 4, "culture": 5, "sports": 7, "others": 17 }
+];
+
+//식음료 매력도 추세
+const food_attractiveness_trend= [ 
+    { "month": "Jan", "show": 128 },
+    { "month": "Feb", "show": 99 },
+    { "month": "Mar", "show": 143 },
+    { "month": "Apr", "show": 168 },
+    { "month": "May", "show": 201 },
+    { "month": "Jun", "show": 169 },
+    { "month": "Jul", "show": 157 },
+    { "month": "Aug", "show": 128 },
+    { "month": "Sep", "show": 179 },
+    { "month": "Oct", "show": 199 },
+    { "month": "Nov", "show": 135 },
+    { "month": "Dec", "show": 87 }
+];
+
+//다음 페이지부터 나오는 밀양명가에 대한 차트는 전과 완전히 동일해서 중복해서 넣지 않았습니다!

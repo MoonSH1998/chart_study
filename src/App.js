@@ -4,6 +4,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import React from 'react';
 import './App.css';
 import Bar1 from './bar/Bar1';
 import Bar2 from './bar/Bar2';
@@ -22,6 +23,7 @@ import Pie1 from './pie/Pie1';
 import { Home } from './Home';
 import TBA1 from "./tba/TBA1";
 import TBA2 from "./tba/TBA2";
+import TBA3 from "./tba/TBA3";
 
 function App() {
   return (
@@ -52,6 +54,7 @@ function App() {
              <Route path="Pie1" element={<Pie1 />} />  
              <Route path="TBA1" element={<TBA1 />} />  
              <Route path="TBA2" element={<TBA2 />} />  
+             <Route path="TBA3" element={<TBA3 />} />  
     </Routes>
    
   );

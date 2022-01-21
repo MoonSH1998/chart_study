@@ -1,3 +1,4 @@
+import React from 'react';
 import Bar1 from './bar/Bar1';
 import Bar2 from './bar/Bar2';
 import Bar3 from './bar/Bar3';
@@ -14,7 +15,9 @@ import line5 from './line/Line5';
 import Pie1 from './pie/Pie1';
 import TBA1 from './tba/TBA1';
 import TBA2 from './tba/TBA2';
+import TBA3 from './tba/TBA3';
 import {Routes, Link, Outlet, Route } from "react-router-dom";
+
 
 
 export const Home = () => {
@@ -57,6 +60,7 @@ export const Home = () => {
         <h3>TBA</h3>
         <div><Link to="TBA1">TBA1</Link></div>
         <div><Link to="TBA2">TBA2</Link></div>
+        <div><Link to="TBA3">TBA3</Link></div>
     </div>
 
     <Outlet />

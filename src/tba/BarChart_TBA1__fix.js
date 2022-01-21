@@ -3,7 +3,6 @@ import { select, axisBottom, axisLeft, max, scaleLinear, scaleBand, line, least,
 import useResizeObserver from "./useResizeObserver";
 import { Colors } from "./color.type.ts";
 import * as d3 from "d3";
-import { Tooltip } from "chart.js";
 
 //해야할 일 : tooltip 이쁘게 만들기
 // 사각형 이쁘게 만들기
@@ -105,12 +104,9 @@ function BarChart_TBA1({data}) {
       .attr('stop-color', '#6539fb');
 
 
-      var tooltip2 = d3.select("rect")
-      ;
- 
-        
-    
-        svg
+
+      
+    svg
       .selectAll(".bar")
       .data(data)
       .join("rect")
@@ -134,8 +130,6 @@ function BarChart_TBA1({data}) {
           .text(region[index] + ": " + value + "명")
           .attr("x", xScale(region[index]) + xScale.bandwidth() / 2)
           .attr("text-anchor", "middle")
-
-          
           .transition()
           .attr("y", yScale(value) - 8)
           .attr("opacity", 1)

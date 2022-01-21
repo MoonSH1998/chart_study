@@ -1,0 +1,16 @@
+var tooltip = d3.select("#diagram").append("div").attr("class","tooltip");
+	tooltip.append("div").attr("class","name");
+	tooltip.append("div").attr("class","count");
+	tooltip.append("div").attr("class","percentage");
+	
+	paths.attr("cursor","pointer").on("mouseover",function(d){
+		var total = d3.sum(dataset,function(dd){return dd[1];});                                                      
+		var percent = Math.round(1000 * d.data[1] / total) / 10; 
+		tooltip.select(".name").html(d.data[0]);                
+		tooltip.select(".count").html(d.data[1]);                
+		tooltip.select(".percentage").html(percent + '%');             
+		tooltip.style("display", "block");   
+	});
+	paths.on("mouseout",function(d){            
+		tooltip.style("display", "none");
+	});
