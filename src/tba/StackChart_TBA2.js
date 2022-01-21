@@ -1,0 +1,113 @@
+import React, { useEffect, useRef, useState } from "react";
+import {
+  select,
+  scaleBand,
+  axisBottom,
+  stack,
+  max,
+  scaleLinear,
+  axisLeft,
+  stackOrderAscending
+} from "d3";
+import useResizeObserver from "./useResizeObserver";
+
+function StackChart_TBA2({ data, keys, colors }) {
+  const svgRef = useRef();
+  const wrapperRef = useRef();
+  const dimensions = useResizeObserver(wrapperRef);
+
+  // will be called initially and on every data change
+  useEffect(() => {
+    const svg = select(svgRef.current);
+    
+    if(!dimensions) return;
+    
+    const { width, height } =
+      dimensions || wrapperRef.current.getBoundingClientRect();
+
+    // stacks / layers
+    const stackGenerator = stack()
+      .keys(keys)
+      .order(stackOrderAscending);
+    const layers = stackGenerator(data);
+    const extent = [
+      0,
+      max(layers, layer => max(layer, sequence => sequence[1]/1000*1.1))
+    ];
+
+
+    // scales
+    const xScale = scaleBand()
+      .domain(data.map(d => d.year))
+      .range([0, width])
+      .paddingInner(0.5);
+
+    const yScale = scaleLinear()
+      .domain(extent)
+      .range([height, 0]);
+
+      svg.selectAll("line.y")
+      .data(yScale.ticks(7))
+      .enter().append("line")
+      .attr("class", "y")
+      .attr("x1", 0)
+      .attr("x2", width)
+      .attr("y1", yScale)
+      .attr("y2", yScale)
+      .style("stroke", "#ccc")
+      .style("stroke-dasharray", "2, 2");
+      
+      svg.select(".y")
+      .style("stroke-dasharray", "0");   //첫 라인 stroke 없애기.
+     
+    // rendering
+    svg
+      .selectAll(".layer")
+      .data(layers)
+      .join("g")
+      .attr("class", "layer")
+      .attr("fill", layer => colors[layer.key])
+      .selectAll("rect")
+      .data(layer => layer)
+      .join("rect")
+      .attr("x", sequence => xScale(sequence.data.year))
+      .attr("width", xScale.bandwidth())
+      .attr("y", sequence => yScale(sequence[1]/1000))
+      .attr("height", sequence => yScale(sequence[0]/1000) - yScale(sequence[1]/1000));
+
+    // axes
+    const xAxis = axisBottom(xScale);
+    svg
+      .select(".x-axis")
+      .style("opacity", "0.5")
+      .attr("transform", `translate(0, ${height})`)
+      .call(xAxis)
+      .call(g => g.select(".domain").remove());
+
+    const yAxis = axisLeft(yScale);
+    svg.select(".y-axis")
+       .call(yAxis)
+       .call(g => g.select(".domain").remove())
+       .call(g => g.selectAll(".tick line").remove());
+
+       svg
+      .selectAll(".y-axis")
+      .selectAll("text")
+      .style("opacity", "0.5")
+      .text(function(d) {return d+"k"})
+    
+  }, [colors, data, dimensions, keys]);
+
+  return (
+    <React.Fragment>
+      <div ref={wrapperRef} style={{ marginBottom: "2rem" }}>
+        <svg ref={svgRef}>
+          <g className="x-axis" />
+          <g className="y-axis" />
+        </svg>
+      </div>
+    </React.Fragment>
+  );
+}
+
+export default StackChart_TBA2;

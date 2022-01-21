@@ -12,7 +12,7 @@ function Bar3() {
       <button className="b3" onClick={() => setData(data.map((value) => value + 5))}>
         Update data
       </button>
-      <button className="b3" onClick={() => setData(data.filter((value) => value < 35))}>
+      <button className="b3" onClick={() => setData(data.filter((value) => value < 35) )}>
         Filter data
       </button>
       <button className="b3"

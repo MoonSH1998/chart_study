@@ -3,8 +3,7 @@ import Bar2 from './bar/Bar2';
 import Bar3 from './bar/Bar3';
 import Bar4 from './bar/Bar4';
 import Bar5 from './bar/Bar5';
-import Bar6 from './bar/StackBarChart';
-import Bar7 from './bar/Bar7';
+import Bar6 from './bar/Bar6';
 import Circle1 from './circle/Circle1';
 import Circle2 from './circle/Circle2';
 import Line1 from './line/Line1';
@@ -14,6 +13,7 @@ import line4 from './line/Line4';
 import line5 from './line/Line5';
 import Pie1 from './pie/Pie1';
 import TBA1 from './tba/TBA1';
+import TBA2 from './tba/TBA2';
 import {Routes, Link, Outlet, Route } from "react-router-dom";
 
 
@@ -21,7 +21,7 @@ export const Home = () => {
   return (
    
     <div>
-    <h1 style={{margin: '30px'}}>Studying Chart to d3 + react</h1>
+    <h1 style={{margin: '300px'}}>Studying Chart to d3 + react</h1>
     <div className='content'>
       <div>
         <h3>Bar Chart</h3>
@@ -30,7 +30,7 @@ export const Home = () => {
           <div><Link to="Bar3">Bar3</Link></div>
           <div><Link to="Bar4">Bar4</Link></div>
           <div><Link to="Bar5">Bar5</Link></div>
-          <div><Link to="Bar7">Bar7</Link></div>
+          <div><Link to="Bar6">Bar6</Link></div>
       </div>    <div className='line'></div>
   
    <div>
@@ -56,6 +56,7 @@ export const Home = () => {
     <div>
         <h3>TBA</h3>
         <div><Link to="TBA1">TBA1</Link></div>
+        <div><Link to="TBA2">TBA2</Link></div>
     </div>
 
     <Outlet />

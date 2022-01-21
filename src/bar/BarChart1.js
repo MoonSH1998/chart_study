@@ -2,6 +2,10 @@ import React, { useRef, useEffect, useState } from "react";
 import { select, axisBottom, axisRight, scaleLinear, scaleBand } from "d3";
 import ResizeObserver from 'resize-observer-polyfill'; //have to install to npm
 
+//아직 못한 부분
+//1. tooltip꾸미기
+//2. 그라데이션
+
 const useResizeObserver = ref => {
   const [dimensions, setDimansions] = useState(null);
   useEffect(() => {
