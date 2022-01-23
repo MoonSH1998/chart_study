@@ -14,3 +14,103 @@ var tooltip = d3.select("#diagram").append("div").attr("class","tooltip");
 	paths.on("mouseout",function(d){            
 		tooltip.style("display", "none");
 	});
+
+
+//이거 쓰자
+	svg.on('mouseover', (e,d)=>{
+		const index = svg.selectAll("path").nodes().indexOf(e.target);
+		const k = d3.select(e.currentTarget)
+		console.log(k)
+		//console.log(e);
+	   // console.log(d);
+		tooldiv.style('visibility', 'visible')
+		.html(`<div>${d[index].name}</div>`)
+	  
+	})
+	.on('mousemove', (e,d)=>{
+	  tooldiv.style('top', (e.pageY-50)+'px')
+			 .style('left', (e.pageX-50)+'px')
+	})
+	.on('mouseout', (e,d)=>{
+	  tooldiv.style('visibility', 'hidden')
+	})
+	  
+	 
+
+
+const tooldiv = d3.select('#test')
+			  .append('div')
+			  .style('visiblity', 'hidden')
+			  .style('position', 'absolute')
+			  .style('background-color', 'red')
+
+
+
+//바차트원본
+			  svg
+          .selectAll(".tooltip")
+          .data( [value] )
+          .join((enter) => enter.append("text").attr("y", yScale(value) - 4))
+          .attr("class", "tooltip")
+          .style('visibility','visible')
+          .text(region[index] + ": " + value + "명")
+          .attr("x", xScale(region[index]) + xScale.bandwidth() / 2)
+          .attr("text-anchor", "middle")
+          .transition()
+          .attr("y", yScale(value) - 8)
+          .attr("opacity", 1)
+        })
+        .on("mouseleave", () => svg.select(".tooltip").remove())
+        .transition()
+        .attr('fill', 'url(#a)')
+        .attr("height", (value) => dimensions.height - yScale(value));
+
+
+		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="138" height="61.588" viewBox="0 0 138 61.588">
+  <defs>
+    <filter id="합치기_5" x="0" y="0" width="138" height="61.588" filterUnits="userSpaceOnUse">
+      <feOffset dx="3" dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.078"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="그룹_774" data-name="그룹 774" transform="translate(-642 -432.707)">
+    <g id="구성_요소_64_1" data-name="구성 요소 64 – 1" transform="translate(648 438.707)">
+      <g transform="matrix(1, 0, 0, 1, -6, -6)" filter="url(#합치기_5)">
+        <g id="합치기_5-2" data-name="합치기 5" transform="translate(-17794 -21538)" fill="#fff">
+          <path d="M 17860 21587.087890625 C 17859.8671875 21587.087890625 17859.740234375 21587.03515625 17859.646484375 21586.94140625 L 17856.3515625 21583.646484375 L 17856.205078125 21583.5 L 17855.998046875 21583.5 L 17803.998046875 21583.5 C 17802.068359375 21583.5 17800.5 21581.931640625 17800.5 21580.001953125 L 17800.5 21548 C 17800.5 21546.0703125 17802.068359375 21544.5 17803.998046875 21544.5 L 17916.001953125 21544.5 C 17917.931640625 21544.5 17919.5 21546.0703125 17919.5 21548 L 17919.5 21580.001953125 C 17919.5 21581.931640625 17917.931640625 21583.5 17916.001953125 21583.5 L 17864.001953125 21583.5 L 17863.794921875 21583.5 L 17863.6484375 21583.646484375 L 17860.353515625 21586.94140625 C 17860.259765625 21587.03515625 17860.1328125 21587.087890625 17860 21587.087890625 Z" stroke="none"/>
+          <path d="M 17860 21586.587890625 L 17863.587890625 21583 L 17916.001953125 21583 C 17917.654296875 21583 17919 21581.654296875 17919 21580.001953125 L 17919 21548 C 17919 21546.345703125 17917.654296875 21545 17916.001953125 21545 L 17803.998046875 21545 C 17802.345703125 21545 17801 21546.345703125 17801 21548 L 17801 21580.001953125 C 17801 21581.654296875 17802.345703125 21583 17803.998046875 21583 L 17856.412109375 21583 L 17860 21586.587890625 C 17860 21586.587890625 17860 21586.587890625 17860 21586.587890625 M 17860 21587.587890625 C 17859.744140625 21587.587890625 17859.48828125 21587.490234375 17859.29296875 21587.294921875 L 17855.998046875 21584 L 17803.998046875 21584 C 17801.7890625 21584 17800 21582.20703125 17800 21580.001953125 L 17800 21548 C 17800 21545.7890625 17801.7890625 21544 17803.998046875 21544 L 17916.001953125 21544 C 17918.2109375 21544 17920 21545.7890625 17920 21548 L 17920 21580.001953125 C 17920 21582.20703125 17918.2109375 21584 17916.001953125 21584 L 17864.001953125 21584 L 17860.70703125 21587.294921875 C 17860.51171875 21587.490234375 17860.255859375 21587.587890625 17860 21587.587890625 Z" stroke="none" fill="#d4d8df"/>
+        </g>
+      </g>
+    </g>
+    <text id="충남:_40_283명" data-name="충남: 40,283명" transform="translate(708 464)" fill="#6c738a" font-size="14" font-family="NotoSansCJKkr-Regular, Noto Sans CJK KR"><tspan x="-44.87" y="0">충남: </tspan><tspan y="0" fill="#7932f3" font-family="NotoSansCJKkr-Medium, Noto Sans CJK KR" font-weight="500">40,283</tspan><tspan y="0">명</tspan></text>
+  </g>
+</svg>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="158" height="103.586" viewBox="0 0 158 103.586">
+  <defs>
+    <filter id="합치기_5" x="0" y="0" width="158" height="103.586" filterUnits="userSpaceOnUse">
+      <feOffset dx="3" dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.078"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="그룹_781" data-name="그룹 781" transform="translate(-1524 -367.414)">
+    <g id="구성_요소_64_3" data-name="구성 요소 64 – 3" transform="translate(1530 373.414)">
+      <g transform="matrix(1, 0, 0, 1, -6, -6)" filter="url(#합치기_5)">
+        <g id="합치기_5-2" data-name="합치기 5" transform="translate(-17784 -21496)" fill="#fff">
+          <path d="M 17860 21587.087890625 C 17859.8671875 21587.087890625 17859.740234375 21587.03515625 17859.646484375 21586.94140625 L 17856.3515625 21583.646484375 L 17856.205078125 21583.5 L 17855.998046875 21583.5 L 17793.998046875 21583.5 C 17792.068359375 21583.5 17790.5 21581.931640625 17790.5 21580.001953125 L 17790.5 21506 C 17790.5 21504.0703125 17792.068359375 21502.501953125 17793.998046875 21502.501953125 L 17926.001953125 21502.501953125 C 17927.931640625 21502.501953125 17929.5 21504.0703125 17929.5 21506 L 17929.5 21580.001953125 C 17929.5 21581.931640625 17927.931640625 21583.5 17926.001953125 21583.5 L 17864.001953125 21583.5 L 17863.794921875 21583.5 L 17863.6484375 21583.646484375 L 17860.353515625 21586.94140625 C 17860.259765625 21587.03515625 17860.1328125 21587.087890625 17860 21587.087890625 Z" stroke="none"/>
+          <path d="M 17860 21586.587890625 L 17863.587890625 21583 L 17926.001953125 21583 C 17927.654296875 21583 17929 21581.654296875 17929 21580.001953125 L 17929 21506 C 17929 21504.34765625 17927.654296875 21503.001953125 17926.001953125 21503.001953125 L 17793.998046875 21503.001953125 C 17792.345703125 21503.001953125 17791 21504.34765625 17791 21506 L 17791 21580.001953125 C 17791 21581.654296875 17792.345703125 21583 17793.998046875 21583 L 17856.412109375 21583 L 17860 21586.587890625 C 17860 21586.587890625 17860 21586.587890625 17860 21586.587890625 M 17860 21587.587890625 C 17859.744140625 21587.587890625 17859.48828125 21587.490234375 17859.29296875 21587.294921875 L 17855.998046875 21584 L 17793.998046875 21584 C 17791.79296875 21584 17790 21582.20703125 17790 21580.001953125 L 17790 21506 C 17790 21503.791015625 17791.79296875 21502.001953125 17793.998046875 21502.001953125 L 17926.001953125 21502.001953125 C 17928.20703125 21502.001953125 17930 21503.791015625 17930 21506 L 17930 21580.001953125 C 17930 21582.20703125 17928.20703125 21584 17926.001953125 21584 L 17864.001953125 21584 L 17860.70703125 21587.294921875 C 17860.51171875 21587.490234375 17860.255859375 21587.587890625 17860 21587.587890625 Z" stroke="none" fill="#d4d8df"/>
+        </g>
+      </g>
+    </g>
+    <text id="관광지:_17_263회" data-name="관광지: 17,263회" transform="translate(1542 418.707)" fill="#2ebfff" font-size="14" font-family="NotoSansCJKkr-Medium, Noto Sans CJK KR" font-weight="500"><tspan x="0" y="0">관광지</tspan><tspan y="0" fill="#6c738a" font-family="NotoSansCJKkr-Regular, Noto Sans CJK KR" font-weight="400">: 17,263회</tspan></text>
+    <text id="먹거리:_14_683회" data-name="먹거리: 14,683회" transform="translate(1542 396.707)" fill="#3478ff" font-size="14" font-family="NotoSansCJKkr-Medium, Noto Sans CJK KR" font-weight="500"><tspan x="0" y="0">먹거리</tspan><tspan y="0" fill="#6c738a" font-family="NotoSansCJKkr-Regular, Noto Sans CJK KR" font-weight="400">: 14,683회</tspan></text>
+    <text id="숙박:_27_881회" data-name="숙박: 27,881회" transform="translate(1542 440.707)" fill="#c96bff" font-size="14" font-family="NotoSansCJKkr-Medium, Noto Sans CJK KR" font-weight="500"><tspan x="0" y="0">숙박</tspan><tspan y="0" fill="#6c738a" font-family="NotoSansCJKkr-Regular, Noto Sans CJK KR" font-weight="400">: 27,881회</tspan></text>
+  </g>
+</svg>

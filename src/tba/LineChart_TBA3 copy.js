@@ -156,105 +156,68 @@ function LineChart_TBA3({data}) {
               .y0(height)					
               .y1(function(d) { return yScale(d.pv); });
 
-         svg.append("path")
+    svg.append("path")
               .data([data]) .attr('d', curveLinear)
               .attr("class", "area")
               .attr("d", area)
               .attr("fill", "url(#b)") 
-             .on('mouseover', (e,d)=>{
+              
+              
+              .on('mouseover', (e,d)=>{
                 const index = svg.selectAll("path").nodes().indexOf(e.target);
                 const k = d3.select(e.currentTarget)
+                console.log(k)
+                //console.log(e);
+               // console.log(d);
                 tooldiv.style('visibility', 'visible')
                 .html(`<div>${d[index].name}</div>`)
               
             })
-            // .on('mousemove', (e,d)=>{
-            //   tooldiv.style('top', (e.pageY-50)+'px')
-            //          .style('left', (e.pageX-50)+'px')
-            // })
-            // .on('mouseout', (e,d)=>{
-            //   tooldiv.style('visibility', 'hidden')
-            // })
+            .on('mousemove', (e,d)=>{
+              tooldiv.style('top', (e.pageY-50)+'px')
+                     .style('left', (e.pageX-50)+'px')
+            })
+            .on('mouseout', (e,d)=>{
+              tooldiv.style('visibility', 'hidden')
+            })
+              
+             
 
-const bar_width = parseInt(xScale.bandwidth())
-console.log(width/data.length/2)
-            
-svg
-      .selectAll(".line_")
-      .data(data)
-      .join("rect")
-      .attr("class", "line_")
-      .style("transform", "scale(1, -1)")
-      .attr("x", (value, index) => xScale(data[index].name))
-      //.attr("y", dimensions.height)
-      .style("width", width/data.length)
-      .style('height', `${height}`)
-      .style('transform', `translate(-${width/data.length/2}px, 5px)`)
-      
-        .on('mouseenter', (e,d)=>{
-          const cn1 = d.pv.toString()
-            .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-            const cn2 = d.uv.toString()
-            .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-          // console.log(cn1)
-          const index = svg.selectAll(".bar").nodes().indexOf(e.target);
-          
-          const startX = document.getElementById('start__'); // 요소의 id 값이 target이라 가정
-      
-          const clientRect = startX.getBoundingClientRect(); // DomRect 구하기 (각종 좌표값이 들어있는 객체)
-          const startXval = clientRect.left; // Viewport의 시작지점을 기준으로한 상대좌표 X 값.
-         
-         const marginLeft_ = window.pageXOffset + startX.getBoundingClientRect().left;
-         const marginTop_ = window.pageYOffset + startX.getBoundingClientRect().top;
-         //console.log(marginLeft_)
-    
-         const ax = parseInt(xScale(d.name))-parseInt(marginLeft_)-width/data.length/2
-         console.log(yScale(Math.max(d.uv, d.pv)))
-         const this_max_y = yScale(Math.max(d.uv, d.pv))
-         const ay =  this_max_y - height*1.5
-         //console.log(xScale(d.name));
-        // console.log(ay)
-        //console.log(Math.max(d.uv, d.pv))
-          tooldiv
-          .html(`<div style='text-align:left; height: 50px; '>
-          <div>
-              <span style='color: #7932F3;'>밀양시</span>:&nbsp;${cn1}명
-          </div>
-          <div>
-              <span style='color: #9DA9BE;'>광역평균</span>: &nbsp;${cn2}명
-          </div>
-      </div> `)
-          .style("opacity", 1)
-          //.style('transform', `translate( ${ax}px , ${ay}px )` )
-           .style('font-family', "NotoSansCJKkr-Regular, Noto Sans CJK KR")
-              .style('font-size', '13px')
-              .style('font-weight' ,'500')
-              .style('transform', `translate( ${ax}px , ${ay}px )` )
-              .style('width', `${width/6}px`)
-              .style('height', `${width/15}px`)
-              .style('border', '1px solid #D4D8DF')
-              .style('border-radius', '5.5%')
-              .style('vertical-align', 'middle')
-              .style('justify-content', 'center')
-          
-        })
-   
-        .on('mouseleave', (e,d)=>{
-          tooldiv		
-                .style("opacity", 0);	
-        })
-      .transition()
-      .attr('opacity', '0')
-      
-      
-          
-      const tooldiv = d3.select('#test')
-      .append('div')
-      .attr('id', 'tba2')
-      .style('opacity', '0')
-      .style('position', 'absolute')
-      .style('background-color', 'white')
-      .style('overflow', 'visible')
+
+    const tooldiv = d3.select('#test')
+                      .append('div')
+                      .style('visiblity', 'hidden')
+                      .style('position', 'absolute')
+                      .style('background-color', 'red')
+
+                      
+                      
+                      
+                 
+                        
+
+             /*
+              svg.selectAll("path")
+              .on("mouseenter", (event, v) =>  {
+                
+               const index = svg.selectAll(".bar").nodes().indexOf(event.target);
+                svg
+                  .selectAll(".tooltip")
+                  .data( [data.uv] )
+                  .join((enter) => enter.append("div").attr("y", yScale(data.uv) - 4))
+                  .attr("class", "tooltip")
+                  .style('visibility','visible')
+                  .html("<div>aa</div>")
+                  .text(data.name + ": " + data.uv + "명")
+                  .attr("stroke", "red")
+                  .attr("x", xScale(data.uv) + xScale.bandwidth() / 2)
+                  .attr("text-anchor", "middle")
+                  .transition()
+                  .attr("y", yScale(data.uv) - 8)
+                  .attr("opacity", 1)
+                })
+              
+*/
 
 
   }, [data, dimensions]);
@@ -265,7 +228,7 @@ svg
     <React.Fragment>
      
      <div id='test' ref={wrapperRef} style={{marginBottom: "2rem"}}>
-        <svg id='start__'ref={svgRef}>
+        <svg ref={svgRef}>
           <g className="x-axis" />
           <g className="y-axis" />
         </svg>

@@ -98,9 +98,9 @@ const data = [
 const allKeys = ["먹거리", "관광지", "숙박"];
 
 const colors = {
-  "먹거리": "#C96BFF",
+  "먹거리": "#3478FF",
   "관광지": "#2EBFFF",
-  "숙박": "#3478FF"
+  "숙박": "#C96BFF"
 };
 
 function TBA2() {
@@ -114,9 +114,9 @@ function TBA2() {
           <div style={{fontSize: "14px", marginLeft:"-5%" }}> 목적지 검색 건수</div>
           
           <div style={{marginLeft:"-15%"}}>   
-            <span> <span style={{color:"#C96BFF"}}>■</span> 먹거리 </span>
+            <span> <span style={{color:"#3478FF"}}>■</span> 먹거리 </span>
             <span> <span style={{color:"#2EBFFF"}}>■</span> 광광지 </span>
-            <span> <span style={{color: "#3478FF"}}>■</span> 숙박 </span>
+            <span> <span style={{color: "#C96BFF"}}>■</span> 숙박 </span>
           </div>
 
           <div> 

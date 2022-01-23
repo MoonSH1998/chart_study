@@ -157,7 +157,7 @@ function BarChart_TBA1({data}) {
           //console.log(parseInt(ax))
           
           tooldiv
-          .html(`<div style='margin-top: 10%'>${region[index]}:<span id='tba1' style='color:#7932F3 ; font-weight:bolder ;'>${cn1}</span>명</div>`)
+          .html(`<div style='padding-top: 10%'>${region[index]}:<span id='tba1' style='color:#7932F3 ; font-weight:bolder ;'>${cn1}</span>명</div>`)
           .style("opacity", 1)
           .style('transform', `translate( ${ax}px , ${ay}px )` )
            .style('font-family', "NotoSansCJKkr-Regular, Noto Sans CJK KR")
