@@ -11,12 +11,14 @@ function LineChart_TBA3({data}) {
   // will be called initially and on every data change
   useEffect(() => {
     const svg = select(svgRef.current); 
+   
 
     if(!dimensions) return;
 
     const { width, height } =
       dimensions || wrapperRef.current.getBoundingClientRect();
-
+    const width_box = svg.selectAll("#start__");
+    
      let max1 =max((data.map(d => d.uv * 1.1)));
      let max2 = max((data.map(d => d.pv * 1.1)));
      const maxx = max1>max2 ? max1  : max2 ;
@@ -145,7 +147,7 @@ function LineChart_TBA3({data}) {
               .y1(function(d) { return yScale(d.uv); });
 
     svg.append("path")
-              .data([data]) .attr('d', curveLinear)
+              .data([data]) .attr('m', curveLinear)
               .attr("class", "area")
               .attr("d", area)
               .attr('fill', 'url(#a)');
@@ -157,7 +159,7 @@ function LineChart_TBA3({data}) {
               .y1(function(d) { return yScale(d.pv); });
 
          svg.append("path")
-              .data([data]) .attr('d', curveLinear)
+              .data([data]) .attr('m', curveLinear)
               .attr("class", "area")
               .attr("d", area)
               .attr("fill", "url(#b)") 
@@ -168,17 +170,13 @@ function LineChart_TBA3({data}) {
                 .html(`<div>${d[index].name}</div>`)
               
             })
-            // .on('mousemove', (e,d)=>{
-            //   tooldiv.style('top', (e.pageY-50)+'px')
-            //          .style('left', (e.pageX-50)+'px')
-            // })
-            // .on('mouseout', (e,d)=>{
-            //   tooldiv.style('visibility', 'hidden')
-            // })
+           
 
 const bar_width = parseInt(xScale.bandwidth())
-console.log(width/data.length/2)
-            
+
+
+
+
 svg
       .selectAll(".line_")
       .data(data)
@@ -186,21 +184,21 @@ svg
       .attr("class", "line_")
       .style("transform", "scale(1, -1)")
       .attr("x", (value, index) => xScale(data[index].name))
-      //.attr("y", dimensions.height)
-      .style("width", width/data.length)
+      .style("width", width_box._parents[0].clientWidth/data.length)
       .style('height', `${height}`)
-      .style('transform', `translate(-${width/data.length/2}px, 5px)`)
+      .style('transform', `translate(-${width_box._parents[0].clientWidth/data.length/2}px, 0px)`)
       
         .on('mouseenter', (e,d)=>{
+          //console.log(svg.select('#test').getBoundingClientRect().left)
+          const width_box_ = svg.selectAll('#test')._parents[0].clientWidth
+          console.log(e.target.getBoundingClientRect().left)
           const cn1 = d.pv.toString()
             .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
             const cn2 = d.uv.toString()
             .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
           // console.log(cn1)
-          const index = svg.selectAll(".bar").nodes().indexOf(e.target);
-          
+          const index = svg.selectAll("rect").nodes().indexOf(e.target);
           const startX = document.getElementById('start__'); // 요소의 id 값이 target이라 가정
-      
           const clientRect = startX.getBoundingClientRect(); // DomRect 구하기 (각종 좌표값이 들어있는 객체)
           const startXval = clientRect.left; // Viewport의 시작지점을 기준으로한 상대좌표 X 값.
          
@@ -208,13 +206,13 @@ svg
          const marginTop_ = window.pageYOffset + startX.getBoundingClientRect().top;
          //console.log(marginLeft_)
     
-         const ax = parseInt(xScale(d.name))-parseInt(marginLeft_)-width/data.length/2
+         //const ax = parseInt(xScale(d.name))-parseInt(marginLeft_)-width/data.length/2
+        // const ax = e.target.getBoundingClientRect().left - width/data.length - e.path[1].getBoundingClientRect().left
+        console.log(e.target)
+         const ax = e.target.getBoundingClientRect().left - width_box_/24 - width/12
          console.log(yScale(Math.max(d.uv, d.pv)))
          const this_max_y = yScale(Math.max(d.uv, d.pv))
-         const ay =  this_max_y - height*1.5
-         //console.log(xScale(d.name));
-        // console.log(ay)
-        //console.log(Math.max(d.uv, d.pv))
+         const ay =  this_max_y - height*1.5 - 7
           tooldiv
           .html(`<div style='text-align:left; height: 50px; '>
           <div>
@@ -245,8 +243,7 @@ svg
         })
       .transition()
       .attr('opacity', '0')
-      
-      
+    
           
       const tooldiv = d3.select('#test')
       .append('div')
@@ -255,6 +252,9 @@ svg
       .style('position', 'absolute')
       .style('background-color', 'white')
       .style('overflow', 'visible')
+
+        
+   
 
 
   }, [data, dimensions]);

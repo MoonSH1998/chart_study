@@ -1,3 +1,6 @@
+//스택 순서 변경
+// 버튼에 따라 데이터 날짜값으로 변경.
+
 import React, { useEffect, useRef, useState } from "react";
 import {
   select,
@@ -35,8 +38,7 @@ function StackChart_TBA2({ data, keys, colors }) {
       0,
       max(layers, layer => max(layer, sequence => sequence[1]/1000*1.1))
     ];
-
-
+   
     // scales
     const xScale = scaleBand()
       .domain(data.map(d => d.year))
@@ -84,16 +86,22 @@ function StackChart_TBA2({ data, keys, colors }) {
           const cn3 = d.data.숙박.toString()
           .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
        
-        // const startX = document.getElementById('start__'); // 요소의 id 값이 target이라 가정
-        // const clientRect = startX.getBoundingClientRect(); // DomRect 구하기 (각종 좌표값이 들어있는 객체)
-        // const startXval = clientRect.left; // Viewport의 시작지점을 기준으로한 상대좌표 X 값.
-        // const marginLeft_ = window.pageXOffset + startX.getBoundingClientRect().left;
-        // const marginTop_ = window.pageYOffset + startX.getBoundingClientRect().top;
-        // const ax = parseInt(xScale(d.data.year))-parseInt(marginLeft_)-(xScale.bandwidth()/2);
-       // console.log(parseInt(xScale(d.data.year)))
-        //const ay = 20
-        //console.log(ay)
-        //console.log(ay/1000)
+        const index = svg.selectAll("rect").nodes().indexOf(e.target);
+        let num = 0;
+        if(index < data.length){
+          num = index;
+        }
+        else if(index >= data.length && index < data.length* 2){
+          num = index - data.length;
+        }
+        else num = index - data.length*2
+
+        console.log( num )
+        
+        //const ax = parseInt(xScale(d.data.year))-parseInt(marginLeft_)-(xScale.bandwidth()/2);
+        const ax = -68 + xScale.bandwidth()/2 + (e.path[2].clientWidth-xScale.bandwidth())/14*num
+       //console.log(parseInt(xScale(d.data.year)))
+        const ay = -100
         tooldiv
         .html(`<div style='text-align:left; height: 50px; '>
                   <div>
@@ -107,28 +115,27 @@ function StackChart_TBA2({ data, keys, colors }) {
                   </div>
               </div> `)
         .style("opacity", 1)
-        //.style('transform', `translate( ${ax}px , ${ay}px )` )
-        .attr('x', (e.pageY-50)+'px')
-        .attr('y', (e.pageY-50)+'px')
+        .style('transform', `translate( ${ax}px , ${ay}px )`)
+        //.attr('x', (e.pageY-50)+'px')
+        //.attr('y', (e.pageY-50)+'px')
         .style('font-family', "NotoSansCJKkr-Regular, Noto Sans CJK KR")
-        .style('font-size', '14px')
+        .style('padding-top', '15px')
+        .style('font-size', '13px')
         .style('font-weight' ,'400')
-        .style('width', `${width/5.6}px`)
-        .style('height', `${width/7}px`)
+        .style('width', `100px`)
+        .style('height', `70px`)
         .style('border', '1px solid #D4D8DF')
         .style('border-radius', '5.5%')
         .style('vertical-align', 'middle')
         .style('justify-content', 'center')
+        .style("visibility", "visible");
       })
       .on('mouseleave', (e,d)=>{
         tooldiv		
-              .style("opacity", 0);	
+              .style("opacity", 0)
+              .style("visibility", "hidden");
       })
      
-        
-    
-
-   
     const tooldiv = d3.select('#test')
             .append('div')
             .attr('id', 'tba2')
@@ -136,8 +143,6 @@ function StackChart_TBA2({ data, keys, colors }) {
             .style('position', 'absolute')
             .style('background-color', 'white')
             .style('overflow', 'visible')
-     
-
 
     // axes
     const xAxis = axisBottom(xScale);

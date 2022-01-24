@@ -96,6 +96,7 @@ const data = [
 ];
 
 const allKeys = ["먹거리", "관광지", "숙박"];
+
 const colors = {
   "먹거리": "#3478FF",
   "관광지": "#2EBFFF",
@@ -104,14 +105,13 @@ const colors = {
 
 function TBA2() {
   const [keys, setKeys] = useState(allKeys);
-  const [tab, setTab] = useState('curr');
   return (
     <React.Fragment>
         
         
-        <div style={{display: "flex", marginBottom: "5%", justifyContent: "space-between", opacity: "1",fontSize: "14px"}}>
+        <div style={{display: "flex", marginBottom: "5%", justifyContent: "space-between", opacity: "0.7",fontSize: "14px"}}>
           
-          <div style={{fontSize: "12px", marginLeft:"-5%" ,opacity: "0.5", fontWeight: "500"}}> 목적지 검색 건수</div>
+          <div style={{fontSize: "12px", marginLeft:"-5%" }}> 목적지 검색 건수</div>
           
           <div id="TBA2_STACK" className="fields" >
             
@@ -125,22 +125,19 @@ function TBA2() {
               
               if (e.target.checked) {
                 setKeys(Array.from(new Set([...keys, key ])));
-                e.target.labels[0].classList.remove('black');
-                //setTab('curr');
+                
                 //console.log(document.querySelectorAll('label')[2] )
                 
               } else {
                 setKeys(keys.filter(_key => _key !== key));
-                console.log(e.target.labels[0])
-                e.target.labels[0].classList.add('black');
-                //setTab('');
+                
                 console.log(keys)
               }
               
             }}
           />
-          <label  htmlFor={key} style={{ color: colors[key] }}> 
-                <span  ></span>    {key}
+          <label htmlFor={key} style={{ color: colors[key] }}>
+            {key}
           </label>
         </div>
         ))}

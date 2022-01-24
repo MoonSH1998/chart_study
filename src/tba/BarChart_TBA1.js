@@ -19,6 +19,7 @@ function BarChart_TBA1({data}) {
 
   // will be called initially and on every data change
   useEffect(() => {
+    
     const svg = select(svgRef.current); 
     if(!dimensions) return;
 

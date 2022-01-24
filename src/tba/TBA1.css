@@ -37,7 +37,31 @@ svg > g > g:last-child { pointer-events: none }
 .field {
   display: inline-block;
   margin: 0 0.5em;
+  font-size: 14px;
 }
+input[type="checkbox"] {display: none;}
+#TBA2_STACK :first-child label span{
+      background-color: #3478FF;
+      border-radius: 25%;
+      }
+#TBA2_STACK :nth-child(2) label span{
+        background-color: #2EBFFF;
+        border-radius: 25%;
+        }
+#TBA2_STACK :last-child label span{
+          background-color: #C96BFF;
+          border-radius: 25%;
+          }
+input[type="checkbox"] + label span{
+        width: 16px;
+        height:16px;
+        vertical-align: middle;
+        display: inline-block;
+      }
+input[id="check1"]:checked + label ::after{
+       border-radius: 40%;
+       
+      }
 .tba2{
   font-family: "NotoSansCJKkr-Regular, Noto Sans CJK KR";
   font-size: 14px;
@@ -91,4 +115,10 @@ svg > g > g:last-child { pointer-events: none }
   bottom: -8px;
   width: 0;
   z-index: 0;
+}
+
+
+.black{
+  color: black;
+  opacity: 0.5;
 }
